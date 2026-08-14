@@ -18,10 +18,21 @@
     cursor: pointer;
 }
 
-.navbar-right{
-    display: flex;
-    align-items: center;
-    gap: 40px;
+.navbar-menu a{
+    transition: color 0.25s ease;
+}
+
+.navbar-menu a:hover{
+    color: tomato;
+}
+
+.navbar-right img{
+    transition: transform 0.25s ease;
+    cursor: pointer;
+}
+
+.navbar-right img:hover{
+    transform: scale(1.08);
 }
 
 .navbar button{
@@ -33,6 +44,12 @@
     border: 1px solid tomato;
     cursor: pointer;
     transition: 0.4s;
+}
+
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
 .navbar button:hover{
