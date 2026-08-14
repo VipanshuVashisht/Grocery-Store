@@ -3,32 +3,39 @@ import './FoodItem.css'
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext'
 
-const FoodItem = ({id,name,price,description,image}) => {
-
-const {cartItems, addToCart, removeFromCart, url} = useContext(StoreContext)
+const FoodItem = ({ id, name, price, description, image }) => {
+  const { cartItems, addToCart, removeFromCart, url } = useContext(StoreContext)
 
   return (
-    <div className='food-item'>
-        <div className='food-item-img-container'>
-            <img className='food-item-image' src={url+"/images/"+image} alt="" />
-            {!cartItems[id]
-              ? <img className='add' onClick={()=>addToCart(id)} src={assets.add_icon_white} alt="" />
-              : <div className='food-item-counter'>
-                  <img onClick={()=>removeFromCart(id)} src={assets.remove_icon_red} alt="" />
-                  <p>{cartItems[id]}</p>
-                  <img onClick={()=>addToCart(id)} src={assets.add_icon_green} alt="" />
-                </div>
-            }
+    <article className='food-item'>
+      <div className='food-item-img-container'>
+        <img className='food-item-image' src={url + '/images/' + image} alt={name} />
+        {!cartItems[id] ? (
+          <img
+            className='add'
+            onClick={() => addToCart(id)}
+            src={assets.add_icon_white}
+            alt='Add to cart'
+          />
+        ) : (
+          <div className='food-item-counter'>
+            <img onClick={() => removeFromCart(id)} src={assets.remove_icon_red} alt='Remove' />
+            <p>{cartItems[id]}</p>
+            <img onClick={() => addToCart(id)} src={assets.add_icon_green} alt='Add' />
+          </div>
+        )}
+      </div>
+      <div className='food-item-info'>
+        <div className='food-item-name-rating'>
+          <h3>{name}</h3>
+          <img src={assets.rating_stars} alt='Rating' />
         </div>
-        <div className="food-item-info">
-            <div className="food-item-name-rating">
-                <p>{name}</p>
-                <img src={assets.rating_stars} alt="" />
-            </div>
-            <p className="food-item-description">{description}</p>
-            <p className="food-item-price">Rs.{price}</p>
+        <p className='food-item-description'>{description}</p>
+        <div className='food-item-footer'>
+          <p className='food-item-price'>Rs.{price}</p>
         </div>
-    </div>
+      </div>
+    </article>
   )
 }
 

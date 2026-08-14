@@ -29,5 +29,15 @@ a{
   100%{
     opacity: 1;
   }
+}
 
+.scroll-reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.scroll-reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
 }

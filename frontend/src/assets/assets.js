@@ -97,7 +97,7 @@ export const assets = {
 
 export const menu_list = [
     {
-        menu_name: "Biscuits, Drinks & Namkeen",
+        menu_name: "Snacks & Drinks",
         menu_image: menu_1
     },
     {
@@ -113,7 +113,7 @@ export const menu_list = [
         menu_image: menu_4
     },
     {
-        menu_name: "Personal Care & Beauty",
+        menu_name: "Personal Care",
         menu_image: menu_5
     },
     {

@@ -10,6 +10,7 @@ const StoreContextProvider = (props) =>{
     const url = 'https://grocery-store-v1mt.onrender.com'
     const [token, setToken] = useState("")
     const [food_list, setFoodList] = useState([])
+    const [foodListLoading, setFoodListLoading] = useState(true)
 
     const addToCart = async (itemId) => {
         if(!cartItems[itemId]){
@@ -41,8 +42,13 @@ const StoreContextProvider = (props) =>{
     }
 
     const fetchFoodList = async() => {
-        const response = await axios.get(url+'/api/food/list')
-        setFoodList(response.data.data)
+        try {
+            setFoodListLoading(true)
+            const response = await axios.get(url+'/api/food/list')
+            setFoodList(response.data.data)
+        } finally {
+            setFoodListLoading(false)
+        }
     }
 
     const loadCartData = async(token) => {
@@ -63,6 +69,7 @@ const StoreContextProvider = (props) =>{
 
     const contextValue={
         food_list,
+        foodListLoading,
         cartItems,
         setCartItems,
         addToCart,

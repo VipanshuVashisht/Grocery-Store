@@ -39,6 +39,13 @@
     background-color: white;
     font-size: 1vw;
     border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-contents button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 1050px){
