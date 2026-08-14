@@ -24,6 +24,4 @@ dist-ssr
 *.sln
 *.sw?
 
-# Ignore the assets folder
-src/assets/
 
